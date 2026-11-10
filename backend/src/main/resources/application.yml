@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: datagocar
+  datasource:
+    # SQLite file; the parent directory is created on startup. Pragmas are passed as URL parameters.
+    url: jdbc:sqlite:${DATAGOCAR_DB_PATH:./data/datagocar.db}?foreign_keys=on&journal_mode=WAL&date_class=TEXT&busy_timeout=10000
+    driver-class-name: org.sqlite.JDBC
+    hikari:
+      # SQLite allows a single writer; one pooled connection serializes all transactions.
+      maximum-pool-size: 1
+  jpa:
+    open-in-view: false
+    database-platform: org.hibernate.community.dialect.SQLiteDialect
+    hibernate:
+      ddl-auto: none # schema is owned by Liquibase (db/changelog)
+    properties:
+      hibernate:
+        type:
+          preferred_uuid_jdbc_type: CHAR
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.yaml
+
+datagocar:
+  export:
+    # Author written into generated Liquibase changesets
+    liquibase-author: datagocar
+
+server:
+  port: 8080

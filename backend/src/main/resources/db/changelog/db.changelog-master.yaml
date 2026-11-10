@@ -1,0 +1,43 @@
+databaseChangeLog:
+  - changeSet:
+      id: 001-design-model
+      author: datagocar
+      changes:
+        - createTable:
+            tableName: design_model
+            columns:
+              - column: { name: id, type: varchar(36), constraints: { primaryKey: true, primaryKeyName: design_model_pkey } }
+              - column: { name: name, type: varchar(200), constraints: { nullable: false } }
+              - column: { name: version, type: bigint, constraints: { nullable: false } }
+              - column: { name: document, type: text, constraints: { nullable: false } }
+              - column: { name: created_at, type: timestamp, constraints: { nullable: false } }
+              - column: { name: updated_at, type: timestamp, constraints: { nullable: false } }
+  - changeSet:
+      id: 002-model-operation
+      author: datagocar
+      changes:
+        - createTable:
+            tableName: model_operation
+            remarks: Append-only log of every applied edit (history / audit)
+            columns:
+              - column: { name: id, type: integer, autoIncrement: true, constraints: { primaryKey: true, primaryKeyName: model_operation_pkey } }
+              # SQLite cannot add foreign keys with ALTER TABLE, so the FK is declared inline.
+              - column:
+                  name: model_id
+                  type: varchar(36)
+                  constraints:
+                    nullable: false
+                    foreignKeyName: model_operation_model_id_fkey
+                    references: design_model(id)
+                    deleteCascade: true
+              - column: { name: version, type: bigint, constraints: { nullable: false } }
+              - column: { name: author, type: varchar(100) }
+              - column: { name: operation, type: text, constraints: { nullable: false } }
+              - column: { name: created_at, type: timestamp, constraints: { nullable: false } }
+        - createIndex:
+            indexName: model_operation_model_id_version_key
+            tableName: model_operation
+            unique: true
+            columns:
+              - column: { name: model_id }
+              - column: { name: version }
