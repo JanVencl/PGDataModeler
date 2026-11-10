@@ -1,3 +1,5 @@
+# Changeset authors stay "datagocar" (the project's former name): Liquibase identifies a changeset by
+# id + author + file, so changing them would re-run these changesets on existing databases.
 databaseChangeLog:
   - changeSet:
       id: 001-design-model

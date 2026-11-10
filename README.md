@@ -1,4 +1,4 @@
-# DataGocar
+# PGDataModeler
 
 A browser tool where several people design a PostgreSQL data model together, live, and export it as
 PostgreSQL DDL or a Liquibase changelog.
@@ -44,7 +44,7 @@ Prerequisites: JDK 21, Maven 3.9+, Node 20+. No database server is needed: model
 
 ```bash
 cd backend
-mvn spring-boot:run                  # API + WebSocket on :8080, creates ./data/datagocar.db via Liquibase
+mvn spring-boot:run                  # API + WebSocket on :8080, creates ./data/pgdatamodeler.db via Liquibase
 
 cd ../frontend
 npm install
@@ -56,8 +56,8 @@ Open the app in two browser windows with different names to see collaboration.
 **Single deployable:** `cd frontend && npm run build` writes the bundle to `backend/src/main/resources/static`,
 then `cd backend && mvn package` produces one JAR serving UI + API on :8080.
 
-Configuration (env vars): `DATAGOCAR_DB_PATH` (SQLite file, default `./data/datagocar.db`, relative to the working directory);
-`datagocar.export.liquibase-author` sets the changeset author (or pass `&author=` on export).
+Configuration (env vars): `PGDATAMODELER_DB_PATH` (SQLite file, default `./data/pgdatamodeler.db`, relative to the working directory);
+`pgdatamodeler.export.liquibase-author` sets the changeset author (or pass `&author=` on export).
 
 ## Architecture
 

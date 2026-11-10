@@ -11,10 +11,10 @@
         <relativePath/>
     </parent>
 
-    <groupId>com.datagocar</groupId>
-    <artifactId>datagocar</artifactId>
+    <groupId>com.pgdatamodeler</groupId>
+    <artifactId>pgdatamodeler</artifactId>
     <version>0.1.0-SNAPSHOT</version>
-    <name>DataGocar</name>
+    <name>PGDataModeler</name>
     <description>Collaborative PostgreSQL data-model designer with SQL and Liquibase export</description>
 
     <properties>

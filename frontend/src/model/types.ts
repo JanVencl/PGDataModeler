@@ -1,4 +1,4 @@
-// Mirrors com.datagocar.model.* and com.datagocar.ops.ModelOperation on the backend.
+// Mirrors com.pgdatamodeler.model.* and com.pgdatamodeler.ops.ModelOperation on the backend.
 
 export type Identity = 'NONE' | 'ALWAYS' | 'BY_DEFAULT';
 export type FkAction = 'NO_ACTION' | 'RESTRICT' | 'CASCADE' | 'SET_NULL' | 'SET_DEFAULT';

@@ -66,7 +66,7 @@ export function ModelList({ userName, onUserName, onOpen }: Props) {
 
   return (
     <div className="home">
-      <h1>DataGocar</h1>
+      <h1>PGDataModeler</h1>
       <p className="muted">Collaborative PostgreSQL data-model designer</p>
 
       <section className="card">

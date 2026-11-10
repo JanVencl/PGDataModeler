@@ -1,9 +1,9 @@
 spring:
   application:
-    name: datagocar
+    name: pgdatamodeler
   datasource:
     # SQLite file; the parent directory is created on startup. Pragmas are passed as URL parameters.
-    url: jdbc:sqlite:${DATAGOCAR_DB_PATH:./data/datagocar.db}?foreign_keys=on&journal_mode=WAL&date_class=TEXT&busy_timeout=10000
+    url: jdbc:sqlite:${PGDATAMODELER_DB_PATH:./data/pgdatamodeler.db}?foreign_keys=on&journal_mode=WAL&date_class=TEXT&busy_timeout=10000
     driver-class-name: org.sqlite.JDBC
     hikari:
       # SQLite allows a single writer; one pooled connection serializes all transactions.
@@ -20,10 +20,10 @@ spring:
   liquibase:
     change-log: classpath:db/changelog/db.changelog-master.yaml
 
-datagocar:
+pgdatamodeler:
   export:
     # Author written into generated Liquibase changesets
-    liquibase-author: datagocar
+    liquibase-author: pgdatamodeler
 
 server:
   port: 8080

@@ -6,7 +6,7 @@
       "runtimeExecutable": "java",
       "runtimeArgs": [
         "-jar",
-        "backend/target/datagocar-0.1.0-SNAPSHOT.jar"
+        "backend/target/pgdatamodeler-0.1.0-SNAPSHOT.jar"
       ],
       "port": 8080,
       "autoPort": false

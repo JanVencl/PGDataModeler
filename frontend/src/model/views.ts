@@ -1,4 +1,4 @@
-// Which tables / views a view's query reads. Client copy of com.datagocar.ddl.ViewDependencies (a FROM / JOIN
+// Which tables / views a view's query reads. Client copy of com.pgdatamodeler.ddl.ViewDependencies (a FROM / JOIN
 // heuristic, not a SQL parser). Keep both in sync.
 import type { DataModel, View } from './types';
 

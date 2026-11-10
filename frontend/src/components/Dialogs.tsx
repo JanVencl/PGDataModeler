@@ -99,7 +99,7 @@ const FORMATS: { id: ExportFormat; label: string }[] = [
   { id: 'sql', label: 'PostgreSQL DDL' },
   { id: 'liquibase-xml', label: 'Liquibase XML' },
   { id: 'liquibase-sql', label: 'Liquibase formatted SQL' },
-  { id: 'json', label: 'DataGocar JSON' },
+  { id: 'json', label: 'PGDataModeler JSON' },
 ];
 
 export function ExportDialog({ modelId, version, pending, onClose }: { modelId: string; version: number; pending: number; onClose: () => void }) {

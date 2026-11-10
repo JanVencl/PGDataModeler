@@ -17,11 +17,13 @@ export function colorFor(name: string): string {
   return USER_COLORS[h % USER_COLORS.length];
 }
 
-const USER_KEY = 'datagocar.userName';
+const USER_KEY = 'pgdatamodeler.userName';
+/** Key used before the project was renamed from DataGocar. */
+const LEGACY_USER_KEY = 'datagocar.userName';
 
 export function loadUserName(): string {
   try {
-    return localStorage.getItem(USER_KEY) ?? '';
+    return localStorage.getItem(USER_KEY) ?? localStorage.getItem(LEGACY_USER_KEY) ?? '';
   } catch {
     return '';
   }

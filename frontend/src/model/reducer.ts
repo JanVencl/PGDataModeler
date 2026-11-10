@@ -1,4 +1,4 @@
-// Client copy of com.datagocar.ops.OperationApplier. Keep both in sync.
+// Client copy of com.pgdatamodeler.ops.OperationApplier. Keep both in sync.
 import { MAX_ROWS, type DataModel, type EnumType, type Operation, type Relationship, type Row, type Table, type View } from './types';
 
 export class InvalidOperation extends Error {}
